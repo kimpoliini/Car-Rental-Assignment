@@ -1,0 +1,66 @@
+[
+  {
+    "regnr": "SPD390",
+    "make": 0,
+    "type": 1,
+    "odometer": 40000,
+    "costkm": 1.4,
+    "costday": 150
+  },
+  {
+    "regnr": "ASI289",
+    "make": 1,
+    "type": 2,
+    "odometer": 18000,
+    "costkm": 1.8,
+    "costday": 250
+  },
+  {
+    "regnr": "XDD453",
+    "make": 3,
+    "type": 2,
+    "odometer": 12000,
+    "costkm": 0.85,
+    "costday": 400
+  },
+  {
+    "regnr": "UIK008",
+    "make": 5,
+    "type": 3,
+    "odometer": 10000,
+    "costkm": 0.5,
+    "costday": 50
+  },
+  {
+    "regnr": "MOR334",
+    "make": 1,
+    "type": 0,
+    "odometer": 35000,
+    "costkm": 1.2,
+    "costday": 100
+  },
+  {
+    "regnr": "YWV020",
+    "make": 4,
+    "type": 4,
+    "odometer": 0,
+    "costkm": 5,
+    "costday": 1500
+  },
+  {
+    "regnr": "PMG44A",
+    "make": 2,
+    "type": 1,
+    "odometer": 15000,
+    "costkm": 1.2,
+    "costday": 100
+  },
+  {
+    "regnr": "NYO00M",
+    "make": 5,
+    "type": 3,
+    "odometer": 7500,
+    "costkm": 0.4,
+    "costday": 70
+  }
+]

@@ -1,0 +1,32 @@
+﻿table {
+        width: 100%;
+        margin: 1em 0 1em 0;
+}
+
+td, tr {
+    padding: 0.5em;
+    border: 1px solid gray;
+}
+
+th {
+    padding: 0.5em;
+}
+
+tr > th:nth-child(odd){
+    background-color: lightskyblue;
+}
+tr > th:nth-child(even){
+    background-color: lightblue;
+}
+
+.booking-status {
+    font-size: 11pt;
+    color: white;
+    padding: 4px 8px 4px 8px;
+    border-radius: 6px;
+    background: green;
+}
+
+.rented {
+    background: orange;
+}
