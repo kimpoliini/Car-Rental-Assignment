@@ -80,19 +80,19 @@
     //Asynchronously gets vehicle data from a JSON file and set the new vehicles through the Business class
     protected override async Task OnInitializedAsync()
     {
-        List<Car>? jsonVehicles = await Http.GetFromJsonAsync<List<Car>>("sample-data/vehicles.json");
+        // List<Car>? jsonVehicles = await Http.GetFromJsonAsync<List<Car>>("sample-data/vehicles.json");
         
-        List<IVehicle> vehicles = new();
+        // List<IVehicle> vehicles = new();
         
-        if (jsonVehicles is not null)
-        {
-            foreach (var v in jsonVehicles)
-            {
-                IVehicle newVehicle = v;
-                if (v.Type == VehicleType.Motorcycle) newVehicle = new Motorcycle(v);
-                vehicles.Add(newVehicle);
-            }
-        }
-        b.SetVehicles(vehicles);
+        // if (jsonVehicles is not null)
+        // {
+        //     foreach (var v in jsonVehicles)
+        //     {
+        //         IVehicle newVehicle = v;
+        //         if (v.Type == VehicleType.Motorcycle) newVehicle = new Motorcycle(v);
+        //         vehicles.Add(newVehicle);
+        //     }
+        // }
+        // b.SetVehicles(vehicles);
     }
 }

@@ -2,6 +2,11 @@
 using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
+using System.IO;
+using System.Net.Http.Json;
+using System.Net.NetworkInformation;
+using System.Text.Json;
+
 
 namespace Car_Rental.Data.Classes;
 
@@ -10,10 +15,37 @@ public class TestCarsData : IData
     List<IVehicle> _vehicles = new();
     List<IBooking> _bookings = new();
     List<IPerson> _persons = new();
-    
+
+
+    public TestCarsData()
+    {
+        SeedData();
+    }
+
+    void SeedData()
+    {
+        //"Not allowed to load local resource: file:///vehicles.json"
+        //HttpClient http = new();
+        //http.BaseAddress = new Uri("/sample-data");
+        //List<Car>? jsonVehicles = await http.GetFromJsonAsync<List<Car>>("vehicles.json");
+
+        List<Car> vehicles = new()
+        {
+            new Car("MOR334",VehicleMake.Volvo,VehicleType.StationWagon,340000,1.2,100),
+            new Car("PMG44A",VehicleMake.Volkswagen,VehicleType.Hatchback,23000,1.2,100),
+            new Car("NYO00M",VehicleMake.Koenigsegg,VehicleType.Sport,1200,5,1200),
+            new Car("ARG214",VehicleMake.Dukati,VehicleType.Motorcycle,10000,2.2,400),
+            new Car("SHR445",VehicleMake.Ford,VehicleType.Hatchback,25000,1,80),
+            new Car("PJL392",VehicleMake.Polestar,VehicleType.Sedan,8000,0.8,100),
+        };
+
+        SetVehicles(vehicles);
+
+    }
     public IEnumerable<IVehicle> GetVehicles() => _vehicles;
-    public void SetVehicles(IEnumerable<IVehicle> vehicles){
-    
+    public void SetVehicles(IEnumerable<IVehicle> vehicles)
+    {
+
         _vehicles.AddRange(vehicles);
 
         //Populate bookings and persons with fake data when vehicles has been added
