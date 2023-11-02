@@ -1,6 +1,6 @@
 ﻿@page "/"
-@inject HttpClient Http
-@inject Car_Rental.Business.Classes.Business b
+@using Car_Rental.Business.Classes
+@inject Business b
 
 <h3>Vehicles</h3>
 <table>
@@ -13,22 +13,24 @@
         <th>Cost/Day</th>
         <th>Availability</th>
     </tr>
+
     @foreach (var car in b.GetVehicles())
     {
         <tr>
             <td>@car.RegNr</td>
-            <td>@Enum.GetName(typeof(VehicleMake), car.Make)</td>
-            <td>@Enum.GetName(typeof(VehicleType), car.Type)</td>
+            <td>@car.Make</td>
+            <td>@car.Type</td>
             <td>@car.Odometer km</td>
             <td>$@car.CostKm</td>
             <td>$@car.CostDay</td>
             <td>
                 <span class="booking-status @(car.Status == VehicleStatus.Booked ? "rented" : "")">
-                    @Enum.GetName(typeof(VehicleStatus), car.Status)
+                    @car.Status
                 </span>
             </td>
         </tr>
     }
+
 </table>
 
 <h3>Bookings</h3>
@@ -74,25 +76,3 @@
         </tr>
     }
 </table>
-
-
-@code {
-    //Asynchronously gets vehicle data from a JSON file and set the new vehicles through the Business class
-    protected override async Task OnInitializedAsync()
-    {
-        // List<Car>? jsonVehicles = await Http.GetFromJsonAsync<List<Car>>("sample-data/vehicles.json");
-        
-        // List<IVehicle> vehicles = new();
-        
-        // if (jsonVehicles is not null)
-        // {
-        //     foreach (var v in jsonVehicles)
-        //     {
-        //         IVehicle newVehicle = v;
-        //         if (v.Type == VehicleType.Motorcycle) newVehicle = new Motorcycle(v);
-        //         vehicles.Add(newVehicle);
-        //     }
-        // }
-        // b.SetVehicles(vehicles);
-    }
-}
